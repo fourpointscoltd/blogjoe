@@ -1,8 +1,8 @@
-import { getArticleById, getAllArticles } from '@/libs/microcms'; // 先ほどの関数をインポート
-import { type Article } from '@/libs/microcms'; // Article 型をインポート
+import { getArticleById, getAllArticles } from '@/libs/microcms'; // MicroCMS API を使って記事を取得する関数をインポート
+import { type Article as ArticleType } from '@/libs/microcms'; // Article 型をエイリアスでインポート
 import Article from '@/components/Article'; // Article コンポーネントをインポート
 
-// この関数を使って、ページのデータをサーバーサイドでフェッチします
+// メタデータの生成
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const articleData = await getArticleById(params.slug);
   return {
@@ -16,14 +16,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
+// 記事ページコンポーネント
 const ArticlePage = async ({ params }: { params: { slug: string } }) => {
-  // サーバーサイドで記事データを取得
-  const data = await getArticleById(params.slug);
-  
-  // すべての記事データを取得（おすすめ記事用）
-  const allArticles = await getAllArticles();
+  const data = await getArticleById(params.slug); // 記事データを取得
+  const allArticles = await getAllArticles(); // すべての記事データを取得
 
-  return <Article data={data} allArticles={allArticles} />;
+  return <Article data={data} allArticles={allArticles} />; // 記事コンポーネントにデータを渡してレンダリング
 };
 
 export default ArticlePage;
