@@ -95,3 +95,23 @@ export const getTag = async (contentId: string, queries?: MicroCMSQueries) => {
 
   return detailData;
 };
+
+// MicroCMSからすべての記事データを取得
+export async function getAllArticles() {
+  const res = await fetch('https://your-microcms-api-endpoint/articles');
+  if (!res.ok) {
+    throw new Error('Failed to fetch articles');
+  }
+  const data = await res.json();
+  return data.contents; // データの形式に応じて変更が必要な場合があります
+}
+
+// 特定の記事データを取得
+export async function getArticleById(slug: string) {
+  const res = await fetch(`https://your-microcms-api-endpoint/articles/${slug}`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch article');
+  }
+  const data = await res.json();
+  return data; // データの形式に応じて変更が必要な場合があります
+}
