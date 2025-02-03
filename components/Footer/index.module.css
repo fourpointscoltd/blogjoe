@@ -1,0 +1,30 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子要素を中央揃えに */
+  text-align: center;
+  width: 100%;
+}
+
+.img1{
+  display: flex;
+  align-items: center; /* 子要素を中央揃えに */
+  justify-content: center; /* 縦方向も中央揃えに */
+  padding: 24px 8px;
+}
+
+.img1 a img {
+  width: 40px;
+  align-items: center;
+  max-height: 2rem ;
+  max-width: 3rem;
+  object-fit: scale-down;
+  margin: 10px;
+}
+
+@media (max-width: 640px) {
+  .img1 {
+    justify-content: left; /* 縦方向も中央揃えに */
+}
+
+}

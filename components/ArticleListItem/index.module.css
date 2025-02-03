@@ -1,0 +1,49 @@
+@media (min-width: 640px) {
+
+  .image {
+    max-width: 30rem;
+  }
+}
+
+.title1{
+  font-size: 2.2rem;
+  margin-right: 5px;
+  color: #FFDE59;
+  text-shadow:1px 1px 1px  black;
+}
+
+.list {
+  margin-bottom: 40px;
+}
+
+.link {
+  display: flex;
+  gap: 40px;
+}
+
+.image {
+  width: 320px;
+  height: auto;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .link {
+    display: block;
+  }
+  .image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+}
