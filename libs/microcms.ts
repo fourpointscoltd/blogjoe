@@ -58,6 +58,19 @@ export const getList = async (queries?: MicroCMSQueries) => {
   return listData;
 };
 
+// ブログの詳細を取得
+export const getDetail = async (contentId: string, queries?: MicroCMSQueries) => {
+  const detailData = await client
+    .getListDetail<Blog>({
+      endpoint: 'blog',
+      contentId,
+      queries,
+    })
+    .catch(notFound);
+
+  return detailData;
+};
+
 // タグの一覧を取得
 export const getTagList = async (queries?: MicroCMSQueries) => {
   const listData = await client
@@ -66,26 +79,19 @@ export const getTagList = async (queries?: MicroCMSQueries) => {
       queries,
     })
     .catch(notFound);
+
   return listData;
 };
 
-// MicroCMSからすべての記事データを取得
-export async function getAllArticles() {
-  const listData = await client
-    .getList<Article>({
-      endpoint: 'articles', // 'articles' がエンドポイント名
+// タグの詳細を取得
+export const getTag = async (contentId: string, queries?: MicroCMSQueries) => {
+  const detailData = await client
+    .getListDetail<Tag>({
+      endpoint: 'tags',
+      contentId,
+      queries,
     })
     .catch(notFound);
-  return listData.contents;
-}
 
-// 特定の記事データを取得
-export async function getArticleById(slug: string) {
-  const articleData = await client
-    .getListDetail<Article>({
-      endpoint: 'articles',
-      contentId: slug, // 記事のスラッグを指定して取得
-    })
-    .catch(notFound);
-  return articleData;
-}
+  return detailData;
+};
