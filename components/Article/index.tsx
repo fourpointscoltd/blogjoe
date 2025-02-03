@@ -6,8 +6,8 @@ import Profile from '../Profile';
 import Link from 'next/link';
 
 type Props = {
-  data: Article;
-  allArticles: Article[]; // すべての記事データを渡す
+  data: Article; // 現在の記事データ
+  allArticles: Article[]; // すべての記事データ
 };
 
 export default function Article({ data, allArticles }: Props) {
