@@ -1,5 +1,5 @@
 import { getArticleById, getAllArticles } from '@/libs/microcms'; // MicroCMS API を使って記事を取得する関数をインポート
-import { type Article as ArticleType } from '@/libs/microcms'; // Article 型をエイリアスでインポート
+import { type Article } from '@/libs/microcms'; // Article 型をインポート
 import Article from '@/components/Article'; // Article コンポーネントをインポート
 
 // メタデータの生成
